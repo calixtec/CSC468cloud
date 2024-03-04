@@ -6,7 +6,7 @@ COPY ani.csv /tmp/ani.csv
 
 
 
-RUN rm -rf /docker-entrypoint-initdb.d && mkdir /docker-entrypoint-initdb.d
+mkdir /docker-entrypoint-initdb.d
 
 
 RUN init_db.sql/docker-entrypoint-initdb.d/
