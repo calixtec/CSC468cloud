@@ -1,18 +1,14 @@
 FROM mysql/mysql-server:latest
 
+ENV MYSQL_ROOT_PASSWORD=password
 
 COPY ani.csv /tmp/ani.csv
 
-ENV MYSQL_ROOT_PASSWORD=password
+
 
 RUN rm -rf /docker-entrypoint-initdb.d && mkdir /docker-entrypoint-initdb.d
 
 
-
-RUN echo "CREATE DATABASE csc468;" > /docker-entrypoint-initdb.d/init.sql \
-    && echo "USE csc468;" >> /docker-entrypoint-initdb.d/init.sql \
-    && echo "CREATE TABLE cattle (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), breed VARCHAR(255), age INT);" >> /docker-entrypoint-initdb.d/init.sql \
-    && echo "LOAD DATA INFILE '/tmp/ani.csv' INTO TABLE cattle FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;" >> /docker-entrypoint-initdb.d/init.sql
-
+RUN init_db.sql/docker-entrypoint-initdb.d/
 
 EXPOSE 3306
