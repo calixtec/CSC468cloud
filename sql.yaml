@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mysql-container
-        image: cc976948/my-mysql-image:latest
+        image: cc976948/468:mysql
         env:
           - name: MYSQL_ROOT_PASSWORD
             value: password
