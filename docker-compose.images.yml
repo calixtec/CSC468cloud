@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  sql:
+    build: sql
+    image: 127.0.0.1:30000/sql:v0.1
+    ports:
+    - "3306:3306"
