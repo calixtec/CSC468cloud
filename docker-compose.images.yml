@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  sql:
+  mysql:
     build: sql
     image: mysql
     ports:
