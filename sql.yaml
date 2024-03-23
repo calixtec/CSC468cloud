@@ -13,8 +13,11 @@ spec:
         app: mysql
     spec:
       containers:
-      - name: webui
+      - name: mysql
         image: mysql
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: password
         ports:
           - name: http-port
             containerPort: 3306
