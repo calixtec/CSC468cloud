@@ -2,6 +2,6 @@ FROM mongo:latest
 
 ENV MONGO_INITDB_ROOT_PASSWORD=password
 
-COPY init.sh /docker-entrypoint-initdb.d/
+COPY init.js /docker-entrypoint-initdb.d/
 
-COPY
+
