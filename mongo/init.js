@@ -1,9 +1,10 @@
-db.auth('root', 'password')
+db.auth('admin-user', 'admin-password')
+
 db = db.getSiblingDB('test-database')
 
 db.createUser({
-  user: 'root',
-  pwd: 'password',
+  user: 'test-user',
+  pwd: 'test-password',
   roles: [
     {
       role: 'root',
