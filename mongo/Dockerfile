@@ -1,10 +1,7 @@
 FROM mongo:latest
 
+ENV MONGO_INITDB_ROOT_USERNAME admin-user
+ENV MONGO_INITDB_ROOT_PASSWORD admin-password
+ENV MONGO_INITDB_DATABASE admin
 
-ENV MONGO_INITDB_ROOT_PASSWORD=password
-
-COPY init.js /docker-entrypoint-initdb.d/
-
-CMD mongosh -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase $MONGO_AUTH_DATABASE
-
-Expose 27017
+ADD mongo-init.js /docker-entrypoint-initdb.d/
