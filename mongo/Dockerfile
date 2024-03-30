@@ -9,8 +9,9 @@ RUN mkdir -p /usr/src/app/data
 
 COPY products.json /usr/src/app/data/
 COPY init.js /docker-entrypoint-initdb.d/
+COPY entrypoint.sh /usr/src/app/entrypoint.sh
 
-RUN mongoimport --db inventory --collection items --file COPY products.json /usr/src/app/data/products.json/
+
 WORKDIR /usr/src/app
 
 CMD ["mongod", "--auth"]
