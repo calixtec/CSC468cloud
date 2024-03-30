@@ -1,7 +1,11 @@
+use inventory
 db.createUser({
     user: "mongoadmin",
     pwd: "password",
-    roles: [{ role: "root", db: "admin", db: "inventory" }]
-});
+    roles: [
+        { role: "readWrite", db: "inventory" },
+        { role: "root", db: "admin" }
+    ]
+})
 
 
