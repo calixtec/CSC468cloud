@@ -14,6 +14,6 @@ COPY entrypoint.sh /usr/src/app/entrypoint.sh
 
 WORKDIR /usr/src/app
 
-CMD ["mongod", "--auth"]
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 
 EXPOSE 27017
