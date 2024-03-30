@@ -13,8 +13,8 @@ spec:
         app: mongo
     spec:
       containers:
-      - name: mysql-container
-        image: cc976948/468:mon
+      - name: mongo-container
+        image: cc976948/468:moncon
         ports:
           - name: http-port
             containerPort: 27017
