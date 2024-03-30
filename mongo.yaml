@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mongo-container
-        image: cc976948/468:moncon
+        image: cc976948/468:moncon4
         ports:
           - name: http-port
             containerPort: 27017
