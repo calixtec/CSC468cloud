@@ -1,5 +1,5 @@
-!/bin/bash
-#!/bin/sh
+#!/bin/bash
+
 mongod --auth &
 
 
