@@ -16,7 +16,7 @@ COPY init.js /docker-entrypoint-initdb.d/
 WORKDIR /usr/src/app
 
 
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+
 
 
 EXPOSE 27017
