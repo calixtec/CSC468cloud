@@ -2,7 +2,7 @@ version: "3"
 
 services:
   mysql:
-    build: sql
-    image: mysql
+    build: mongo
+    image: mongo
     ports:
-    - "3306:3306"
+    - "27107:27107"
