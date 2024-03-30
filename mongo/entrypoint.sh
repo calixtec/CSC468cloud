@@ -1,7 +1,7 @@
 mongod --auth &
 
 
-sleep 5
+sleep 30
 
 
-mongoimport --db inventory --collection items --file /usr/src/app/data/products.json --jsonArray
+mongoimport --db inventory --collection items --file /usr/src/app/data/products.json
