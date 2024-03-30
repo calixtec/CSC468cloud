@@ -8,8 +8,8 @@ COPY entrypoint.sh /docker-entrypoint-initdb.d/
 RUN chmod +x /usr/src/app/entrypoint.sh
 
 
-RUN mkdir -p /usr/src/app/data
-COPY products.json /usr/src/app/data/
+
+COPY products.json /usr/src/app/
 COPY init.js /docker-entrypoint-initdb.d/
 
 
