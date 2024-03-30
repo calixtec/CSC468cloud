@@ -4,14 +4,13 @@ FROM mongo:latest
 ENV MONGO_INITDB_ROOT_USERNAME=mongoadmin
 ENV MONGO_INITDB_ROOT_PASSWORD=secret
 
+RUN mkdir -p /usr/src/app/data
 
-EXPOSE 27017
-
+COPY products.json /usr/src/app/data/
+COPY init.js /docker-entrypoint-initdb.d/
 
 WORKDIR /usr/src/app
 
-
-COPY init.js /docker-entrypoint-initdb.d/
-
-
 CMD ["mongod", "--auth"]
+
+EXPOSE 27017
