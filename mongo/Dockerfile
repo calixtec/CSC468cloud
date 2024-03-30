@@ -12,7 +12,7 @@ COPY init.js /docker-entrypoint-initdb.d/
 
 
 COPY entrypoint.sh /usr/src/app/entrypoint.sh
-Run chmod +x /usr/src/app/entrypoint.sh
+RUN chmod +x /usr/src/app/entrypoint.sh
 
 WORKDIR /usr/src/app
 
