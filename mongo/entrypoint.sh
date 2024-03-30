@@ -1,7 +1,9 @@
 #!/bin/bash
 
-mongod --auth &
+read -sp "Enter MongoDB password: " MONGO_PASSWORD
+echo
 
+mongo -u <admin_username> -p "$MONGO_PASSWORD" &
 
 sleep 10
 
