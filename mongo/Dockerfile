@@ -4,7 +4,7 @@ ENV MONGO_INITDB_ROOT_USERNAME=mongoadmin
 ENV MONGO_INITDB_ROOT_PASSWORD=secret
 
 
-COPY entrypoint.sh /usr/src/app/entrypoint.sh
+COPY entrypoint.sh /docker-entrypoint-initdb.d/
 RUN chmod +x /usr/src/app/entrypoint.sh
 
 
