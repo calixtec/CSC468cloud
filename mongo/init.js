@@ -1,7 +1,7 @@
 db.createUser({
     user: "mongoadmin",
     pwd: "password",
-    roles: [{ role: "root", db: "admin" }]
+    roles: [{ role: "root", db: "admin", db: "inventory" }]
 });
 
 
