@@ -1,13 +1,14 @@
 
+var adminDB = db.getSiblingDB('admin');
 
-db = db.getSiblingDB('inventory');
-db.createCollection('items');
 
-use admin
+var inventoryDB = db.getSiblingDB('inventory');
+inventoryDB.createCollection('items');
 
-db.createUser({
-    user: "mongoadmin1",
-    pwd: "password", 
+
+adminDB.createUser({
+    user: "mongoadmin",
+    pwd: "password",
     roles: [{ role: "readWrite", db: "inventory" }]
 });
 
