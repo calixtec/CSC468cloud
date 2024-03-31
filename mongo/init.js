@@ -6,7 +6,10 @@ inventoryDB.createUser({
     pwd: "password",
     roles: [{ role: "readWrite", db: "inventory" }]
 });
+var products = [
+    { product: "headphones", price: 20, date: "March 30, 2024" },
+    { product: "macbook", price: 1000, date: "March 30, 2024" },
+    { product: "mouses", price: 15, date: "March 30, 2024" }
+];
 
-var productsJsonFilePath = "/usr/src/app/data/products.json";
-var jsonData = load(productsJsonFilePath);
-var result = db.items.insertMany(jsonData);
+var result = db.items.insertMany(products);
