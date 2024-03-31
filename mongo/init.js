@@ -2,7 +2,7 @@ db.createUser({
     user: "mongoadmin",
     pwd: "secret",
     pwd: "password",
-    roles: [{ role: "root", db: "admin" },{ role: "root", db: "inventory" }]
+    roles: [{ role: "root", db: "admin" }]
 });
 
 db = db.getSiblingDB('inventory');
