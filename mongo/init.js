@@ -1,4 +1,4 @@
-b.auth('admin-user', 'admin-password')
+db.auth('admin-user', 'admin-password')
 
 db = db.getSiblingDB('test-database')
 
