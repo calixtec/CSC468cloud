@@ -8,6 +8,5 @@ inventoryDB.createUser({
 });
 
 var productsJsonFilePath = '/usr/src/app/data/products.json';
-var importResult = inventoryDB.items.insertMany(
-    JSON.parse(cat(productsJsonFilePath))
-);
+var jsonData = load(productsJsonFilePath);
+var result = db.items.insertMany(jsonData);
