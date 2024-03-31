@@ -1,4 +1,3 @@
-use inventory
 db.createUser({
     user: "mongoadmin",
     pwd: "password",
