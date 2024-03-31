@@ -1,10 +1,14 @@
+b.auth('admin-user', 'admin-password')
+
+db = db.getSiblingDB('test-database')
+
 db.createUser({
-    user: "mongoadmin",
-    pwd: "password",
-    roles: [
-        { role: "readWrite", db: "inventory" },
-        { role: "root", db: "admin" }
-    ]
-})
-
-
+  user: 'test-user',
+  pwd: 'test-password',
+  roles: [
+    {
+      role: 'root',
+      db: 'test-database',
+    },
+  ],
+});
