@@ -7,6 +7,6 @@ inventoryDB.createUser({
     roles: [{ role: "readWrite", db: "inventory" }]
 });
 
-var productsJsonFilePath = '/usr/src/app/data/products.json';
+var productsJsonFilePath = "/usr/src/app/data/products.json";
 var jsonData = load(productsJsonFilePath);
 var result = db.items.insertMany(jsonData);
