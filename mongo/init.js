@@ -4,7 +4,7 @@ db.createUser({
     pwd: "password",
     roles: [
         { role: "root", db: "admin" },
-        { role: "root", db: "inventory" }
+        { role: "dbOwner", db: "inventory" }
     ]
     
 });
