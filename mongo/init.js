@@ -7,7 +7,7 @@ inventoryDB.createCollection('items');
 
 
 adminDB.createUser({
-    user: "mongoadmin",
+    user: "mongoadmin2",
     pwd: "password",
     roles: [{ role: "readWrite", db: "inventory" }]
 });
