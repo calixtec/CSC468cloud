@@ -1,6 +1,7 @@
 #!/bin/bash
 
-mongo --username mongoadmin --password secret --authenticationDatabase admin /docker-entrypoint-initdb.d/init.js
+mongosh --username mongoadmin --password secret --authenticationDatabase admin /docker-entrypoint-initdb.d/init.js
+
 
 mongod --auth &
 
