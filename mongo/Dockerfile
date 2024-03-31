@@ -15,6 +15,7 @@ COPY products.json /usr/src/app/data/
 
 COPY entrypoint.sh /usr/src/app/
 COPY init.js /docker-entrypoint-initdb.d/
+RUN chmod +x entrypoint.sh
 
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 
