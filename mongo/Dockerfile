@@ -17,4 +17,4 @@ COPY init.js /docker-entrypoint-initdb.d/
 
 
 
-CMD ["mongod", "--auth"]
+
