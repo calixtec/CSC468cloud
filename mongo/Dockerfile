@@ -6,7 +6,7 @@ ENV MONGO_INITDB_ROOT_PASSWORD=secret
 
 
 WORKDIR /usr/src/app
-COPY products.json /usr/src/app/data/
+COPY products.js /usr/src/app/data/
 
 #COPY entrypoint.sh /docker-entrypoint-initdb.d/
 COPY init.js /docker-entrypoint-initdb.d/
