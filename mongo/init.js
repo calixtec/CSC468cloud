@@ -3,7 +3,7 @@
 db = db.getSiblingDB('inventory');
 db.createCollection('items');
 
-use admin;
+use admin
 
 db.createUser({
     user: "mongoadmin1",
