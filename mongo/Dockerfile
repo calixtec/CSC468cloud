@@ -8,7 +8,7 @@ RUN mkdir -p /usr/src/app/data
 
 
 COPY products.json /usr/src/app/data/
-COPY init.js /docker-entrypoint-initdb.d/
+#COPY init.js /docker-entrypoint-initdb.d/
 
 
 COPY entrypoint.sh /usr/src/app/entrypoint.sh
