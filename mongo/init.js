@@ -14,8 +14,7 @@
 
 // var result = inventoryDB.items.insertMany(products);
 //-------
-install mongocompat;
-run initialize_inventory;
+
 var inventoryDB = db.getSiblingDB('inventory');
 inventoryDB.createCollection('items');
 
