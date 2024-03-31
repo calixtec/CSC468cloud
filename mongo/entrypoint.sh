@@ -1,9 +1,8 @@
 #!/bin/bash
 
-read -sp "Enter MongoDB password: " MONGO_PASSWORD
-echo
+mongo --username $MONGO_INITDB_ROOT_USERNAME --password $MONGO_INITDB_ROOT_PASSWORD --authenticationDatabase admin /docker-entrypoint-initdb.d/init.js
 
-mongo -u <admin_username> -p "$MONGO_PASSWORD" &
+mongod --auth &
 
 sleep 10
 
