@@ -1,8 +1,9 @@
 #!/bin/bash
+sleep 10
 
 mongod --auth &
 
-sleep 30
+
 
 # Run mongoimport command to import data into the inventory database
 mongoimport --jsonArray --db=inventory --collection=items --file=/usr/src/app/data/products.json
