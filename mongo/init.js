@@ -21,7 +21,8 @@ inventoryDB.createCollection('items');
 inventoryDB.createUser({
     user: "mongoadmin2",
     pwd: "password",
-    roles: [{ role: "readWrite", db: "inventory" }]
+    roles: [{ role: "readWrite", db: "inventory" }],,
+  mechanisms: [ 'SCRAM-SHA-1', 'SCRAM-SHA-256' ]
 });
 var productsJsonFilePath = "/usr/src/app/data/products.json";
 var jsonData = load(productsJsonFilePath);
