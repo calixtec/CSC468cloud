@@ -6,7 +6,8 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - db-data:/data/db
+      - mongoo-data:/data/db
 
 volumes:
-  db-data:
+  mongo-data:
+   driver: local
