@@ -9,5 +9,5 @@ services:
     volumes:
      - db-data:/usr/src/app/data/
 volumes:
- db-data
+ db-data:
   
