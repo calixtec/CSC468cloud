@@ -6,7 +6,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - db-data:/data/db
+      - db-data:/users/cc976948/data/db
 
 volumes:
   db-data:
