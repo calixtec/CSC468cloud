@@ -1,14 +1,14 @@
-FROM mongo:latest
+FROM mongodb/atlas:latest
 
+ENV MONGODB_ATLAS_PUBLIC_API_KEY=jislrgse
+ENV MONGODB_ATLAS_PRIVATE_API_KEY=c70b2ab4-0094-42d7-a805-74e998e1f1ba
+ENV MONGODB_ATLAS_ORG_ID=641a3e0bbda55b4ee69077ff
+ENV MONGODB_ATLAS_PROJECT_ID=641a3e0cbda55b4ee6907808
 
-ENV MONGO_INITDB_ROOT_USERNAME=mongoadmin
-ENV MONGO_INITDB_ROOT_PASSWORD=secret
+# WORKDIR /usr/src/app
+# COPY products.json /usr/src/app/data/
 
-
-WORKDIR /usr/src/app
-COPY products.json /usr/src/app/data/
-
-#COPY entrypoint.sh /docker-entrypoint-initdb.d/
-COPY init.js /docker-entrypoint-initdb.d/
+# #COPY entrypoint.sh /docker-entrypoint-initdb.d/
+# COPY init.js /docker-entrypoint-initdb.d/
 
 EXPOSE 27017
