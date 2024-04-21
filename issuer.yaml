@@ -1,0 +1,7 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: default-issuer
+  namespace: cc976948
+spec:
+  selfSigned: {}
