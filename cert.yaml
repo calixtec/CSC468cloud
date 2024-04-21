@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: mongodb-atlas-x509
-  namespace: mongodb-atlas-system
+  namespace: cc976948
 spec:
   secretName: mongodb-atlas-x509
   secretTemplate:
