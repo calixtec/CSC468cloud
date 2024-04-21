@@ -10,5 +10,6 @@ ENV MONGODB_ATLAS_PROJECT_ID=641a3e0cbda55b4ee6907808
 
 # #COPY entrypoint.sh /docker-entrypoint-initdb.d/
 # COPY init.js /docker-entrypoint-initdb.d/
+# ENTRYPOINT ["mongosh", "mongodb+srv://cluster0.o3tufac.mongodb.net/", "--apiVersion", "1", "--username", "<username>"]
 
 EXPOSE 27017
