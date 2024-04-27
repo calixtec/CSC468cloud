@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: atlas
+  name: webui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: atlas
+      app: webui
   template:
     metadata:
       labels:
-        app: atlas
+        app: webui
     spec:
       containers:
-      - name: atlas-container
-        image: mongodb/atlas:latest
+      - name: web-con
+        image: cc976948/468:webui
         ports:
           - name: http-port
-            containerPort: 27017
+            containerPort: 8080
