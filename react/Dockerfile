@@ -1,29 +1,35 @@
-FROM node:latest AS build   
- WORKDIR /build
+#References:
+#https://medium.com/@alinaseri/dockerize-react-applications-with-nginx-17f752deb54
+#https://kinsta.com/knowledgebase/install-react/#how-to-install-react-on-linux
 
-  
- # COPY package.json package.json
+# Use the official Node.js runtime as the base image
+FROM node:20-alpine as build
 
-  
- # COPY package-lock.json package-lock.json
+# Set the working directory in the container
+WORKDIR /app
 
-  
- RUN npm ci
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-  
- # COPY public/ public
+# Install dependencies
+RUN npm install --force
 
-  
- # COPY src/ src
+RUN npm install -g create-react-app
 
-  
- RUN npm run build
+# Copy the entire application code to the container
+COPY . .
 
-  
- FROM httpd:alpine
+# Build the React app for production
+RUN npm run build
 
-  
- WORKDIR /var/www/html
+# Use Nginx as the production server
+FROM nginx:alpine
 
-  
- # COPY --from=build /build/build/ .
+# Copy the built React app to Nginx's web server directory
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Expose port 80 for the Nginx server
+EXPOSE 80
+
+# Start Nginx when the container runs
+CMD ["nginx", "-g", "daemon off;"]
