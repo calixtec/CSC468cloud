@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  atlas:
-    image: atlas
+  webui:
+    image: cc976948/468:webui
     ports:
-      - "27017:27017"
+      - "8080:80"
