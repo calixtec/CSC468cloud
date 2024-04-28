@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web-con
-        image: cc976948/468:webui2
+        image: cc976948/468:webui3
         ports:
           - name: http-port
             containerPort: 8080
