@@ -17,4 +17,4 @@ spec:
         image: cc976948/468:webui3
         ports:
           - name: http-port
-            containerPort: 8080
+            containerPort: 80
