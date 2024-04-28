@@ -4,4 +4,4 @@ services:
   webui:
     image: cc976948/468:webui3
     ports:
-      - "8080:80"
+      - containerPort: 8080
