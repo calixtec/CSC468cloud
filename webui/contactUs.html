@@ -55,21 +55,32 @@ color: darkgoldenrod;
   
   <div class="nav">
     <div class="inner-con">
-      <a href="/"><span class="button">Home</span></a>
-      <a href="/users"><span class="button">Products</span></a>
-      <a href="/contact"><span class="button">Contact Us</span></a>
+      <a href="index.html"><span class="button">Home</span></a>
+      <a href="products.html"><span class="button">Products</span></a>
+      <a href="contactus.html"><span class="button">Contact Us</span></a>
     </div>
   </div>
   
 
 
 <div class="con">
- <iframe style="background: #21313C;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);width: 100vw;height: 100vh;"  
-   src="https://charts.mongodb.com/charts-project-0-gzcbk/embed/dashboards?id=a44726b9-7b79-4d4d-b325-54f141a88043&theme=dark&autoRefresh=true&maxDataAge=3600&showTitleAndDesc=true&scalingWidth=scale&scalingHeight=scale"></iframe>
+<p>
+  Please enter your information to contact us.
+</p>
+  
+  <form action="/users/submit" method="post">
+    <label for="name">Name</label>
+    <input type="text" name="name">
+    <label for="gender">email</label>
+    <input type="text" name="gender">
+    <input type="submit" value="Submit">
+    </form>
+  
+
 </div>
 
 <footer class">
-  © copyright 2024%>
+  © copyright 2024
 </footer>
 
 
