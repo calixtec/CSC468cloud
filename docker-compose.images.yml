@@ -2,6 +2,6 @@ version: "3"
 
 services:
   webui:
-    image: cc976948/468:webui5
+    image: cc976948/468:webui6
     ports:
       - "8080:80"
