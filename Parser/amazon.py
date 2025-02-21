@@ -40,10 +40,10 @@ def get_product_info(url):
 
 
     return {
-        "name": name,
-        "price": price,
+        "name": name, 
+        "price": [price], 
+        "timestamp": [timestamp],  # Array of price objects
         "url": url,
-        "timestamp": timestamp
     }
 
 # Function to scrape the product information for each URL
@@ -60,8 +60,8 @@ def parse_listing(product_urls, collection):
             if product_info:
                 # Compare prices with previous prices
                 previous_price = collection.find_one({"url": url}, {"price": 1})
-                if previous_price and previous_price.get("price") != product_info["price"]:
-                    print(f"Price changed for product {product_info['name']} at {url}. Previous price: {previous_price['price']}, New Price: {product_info['price']}")
+                # if previous_price and previous_price.get("price") != product_info["price"]:
+                #     print(f"Price changed for product {product_info['name']} at {url}. Previous price: {previous_price['price']}, New Price: {product_info['price']}")
                 page_data.append(product_info)
             time.sleep(1)  # Introducing a delay between requests
 
@@ -88,18 +88,51 @@ def main():
     try:
         iteration = 0
         while True:
+            
+            global visited_urls
+            visited_urls = set()
+            
             data = parse_listing(product_urls, collection)
             df = pd.DataFrame(data)
             df.to_json("products.json") # Inserting data into a separate json file
-
+            
             for item in data:
-                collection.update_one({"url": item["url"]}, {"$set": item}, upsert=True)
+    # Check if price is a list and get the first element
+                if isinstance(item["price"], list):
+                    price_str = item["price"][0]  # Get the first element of the list
+                else:
+                    price_str = item["price"]  # If price is not a list, use it directly
 
+    # Convert price from string to number
+                price_as_number = float(price_str.replace("$", "").replace(",", ""))
+
+    # Prepare the data to be inserted/updated
+                formatted_data = {
+                    "product": item["name"],
+                    "prices": [{
+                        "price": price_as_number,  # Converted price as a number
+                        "date": item["timestamp"]
+                    }]
+                }
+
+    # Update MongoDB
+                collection.update_one(
+                    {"product": item["name"]},  # Query to find the document
+                    {
+                        "$push": {"prices": {"$each": formatted_data["prices"]}}  # Append to the prices array
+                    },
+                    upsert=True  # Insert a new document if no match is found
+                )
+
+
+
+            
             print("Waiting before the next scraping...")
 
-            # Generate a random delay between 2 and 6 hours
+           # Generate a random delay between 2 and 6 hours
             delay_hours = random.uniform(2, 6)
             delay_seconds = delay_hours * 3600 # Convert hours to seconds
+            # delay_seconds =30
             time.sleep(delay_seconds)
 
             iteration += 1
