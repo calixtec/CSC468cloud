@@ -114,3 +114,6 @@ def main():
 
     finally:
         client.close() # Close MongoDB client connection
+        
+if __name__ == '__main__':
+    main()
